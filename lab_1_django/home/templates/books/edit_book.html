@@ -1,0 +1,64 @@
+{% extends 'main/main_layout.html' %}
+
+{% block title %}
+    Edit Book
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="mb-0">Edit Book</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="_method" value="put">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="title" class="form-label">Title:</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ book.title }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="subtitle" class="form-label">Subtitle:</label>
+                                    <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ book.subtitle }}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="author" class="form-label">Author:</label>
+                                    <input type="text" class="form-control" id="author" name="author" value="{{ book.author }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="published" class="form-label">Published:</label>
+                                    <input type="text" class="form-control" id="published" name="published" value="{{ book.published }}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="publisher" class="form-label">Publisher:</label>
+                                    <input type="text" class="form-control" id="publisher" name="publisher" value="{{ book.publisher }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="pages" class="form-label">Pages:</label>
+                                    <input type="number" class="form-control" id="pages" name="pages" value="{{ book.pages }}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <label for="description" class="form-label">Description:</label>
+                                    <textarea class="form-control" id="description" name="description" rows="5">{{ book.description }}</textarea>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-warning">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

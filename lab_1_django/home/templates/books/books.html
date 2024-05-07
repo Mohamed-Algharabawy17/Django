@@ -1,0 +1,28 @@
+{% extends 'main/main_layout.html' %}
+
+{% block title %}
+    All Store Books
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="row">
+    {% for book in data %}
+      <div class="col-md-3 mb-4">
+        <div class="card h-100">
+          <img src="{{ book.imageLink }}" class="card-img-top" alt="{{ book.title }}" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title | title }}</h5>
+            <p class="card-text">{{ book.description | truncatewords:20 }}</p>
+          </div>
+           <div class="card-footer">
+            <a href="{% url 'books:book-details' book.id %}" class="text-info text-decoration-none w-100 me-3 mb-2">Show</a>
+             <a href="{% url 'books:update-book' book.id %}" class="text-warning text-decoration-none me-3 w-100">Edit</a>
+            <a href="{% url 'books:delete-book' book.id %}" class="text-danger text-decoration-none w-100 mb-2">Delete</a>
+           </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

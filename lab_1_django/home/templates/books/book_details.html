@@ -1,0 +1,26 @@
+{% extends 'main/main_layout.html' %}
+
+{% block title %}
+    Book Details
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-5">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card">
+        <img src="{{ imageLink }}" class="card-img-top" alt="{{ title }}" height="350px">
+        <div class="card-body">
+          <h5 class="card-title">{{ title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ author }}</h6>
+          <p class="card-text">{{ description }}</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'books:update-book' id %}" class="text-warning text-decoration-none me-3 w-100">Edit</a>
+          <a href="{% url 'books:delete-book' id %}" class="text-danger text-decoration-none w-100 mb-2">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
