@@ -1,0 +1,29 @@
+{% extends 'main/main_layout.html' %}
+
+{% block title %}
+    Book Details
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">{{ book.title }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ book.description }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Viewed By: {{ book.views }}</h6>
+          <p class="card-text">Rating: {{ book.rate }}</p>
+
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'books:update-book' book.id %}" class="text-warning text-decoration-none me-3 w-100">Edit</a>
+          <a href="{% url 'books:delete-book' book.id %}" class="text-danger text-decoration-none w-100 mb-2">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
