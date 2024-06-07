@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg p-3 px-5" style="background-color: #1a1a1a; color: #FFF; border-bottom: 2px solid #FFF;">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" style="background-color: #FFF;"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex justify-content-between w-100">
+      <div class="d-flex">
+        <li class="nav-item active">
+        <a href="{% url 'BookStore_index' %}" class="nav-link" style="color: #FFF;">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'add-book' %}" class="nav-link" style="color: #FFF;">Add Book</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'BookStore_index' %}" class="nav-link" style="color: #FFF;">Books</a>
+      </li>
+      </div>
+      {% if user.is_authenticated %}
+      <li class="nav-item bg-danger rounded">
+        <a href="{% url 'user:logout' %}" class="nav-link" style="color: #FFF;">Logout</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

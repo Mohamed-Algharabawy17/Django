@@ -1,0 +1,39 @@
+{% extends 'Parts/main.html' %}
+
+{% block main-content %}
+<div class="row mt-5">
+    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+        <div class="card">
+            <div class="card-header" style="background-color: orange; color: #FFF8DC;">
+                Edit Book Details
+            </div>
+            <div class="card-body">
+                <form class="d-flex flex-column justify-content-center align-items-center gap-1" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title:</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Ex: Salinger" value="{{book.title}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="rate" class="form-label">Rate:</label>
+                        <input type="text" class="form-control" id="rate" name="rate" placeholder="Ex: 4.5" value="{{book.rate}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="views" class="form-label">Views:</label>
+                        <input type="text" class="form-control" id="views" name="views" placeholder="Ex: 500000" value="{{book.views}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="Add description" rows="4" cols="50" required>{{book.desc}}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning text-white">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

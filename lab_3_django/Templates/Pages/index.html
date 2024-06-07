@@ -1,0 +1,23 @@
+{% extends 'Parts/main.html' %}
+
+{% block main-content %}
+<div class="row mt-5">
+{% for book in Books %}
+<div class="card mx-3 mb-3 bg-secondary" style="width: 18rem;height: auto; color: #FFF;">
+  <div class="card-header">
+        <h5 class="card-title">{{ book.title }}</h5>
+  </div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2">Reating: {{ book.rate }}</h6>
+    <p class="card-text">{{ book.desc }}</p>
+    <p class="card-text"> Views: {{book.views}}</p>
+    <div class="mt-5">
+      <a href="{% url 'book-Edit' book.id %}" class="btn btn-warning" >Update</a>
+      <a href="{% url 'book-delete' book.id %}" class="btn btn-danger"  >Delete</a>
+
+   </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
